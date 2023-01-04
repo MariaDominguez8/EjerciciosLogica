@@ -44,11 +44,11 @@ namespace EjerciciosLogica.Ejercicio1
                     numI = i;
                 }
             }
-            if (esPar < esImpar && esPar !=0)
+            if (esPar < esImpar)
             {
                 Console.WriteLine($"El numero distinto es:  {numP}");
             }
-            else if(esImpar < esPar && esImpar !=0)
+            else
             {
                 Console.WriteLine($"El numero distinto es: {numI}");
             }   
@@ -59,19 +59,15 @@ namespace EjerciciosLogica.Ejercicio1
          * Este método pùblico se encarga de llenar un vector con valores ingresados por 
          * consola.
          * @return El vector con los valores ingresados. En caso de haber ingresado una longitud menor
-         * a 3, se retornarà el valor -1 y el mensaje de error.
+         * a 3, muestra un mensaje para que orientar al usuario a ingresar la longitud deseada.
          */
         public static int[] LlenarVector()
         {
-           
-            string error = "Ingrese un valor mayor o igual a 3 para la longitud del vector";
-            int n = 0;
             Console.WriteLine("Ingrese la longitud del el vector: ");
-            n = int.Parse(Console.ReadLine());
-            if (n < 3) {
-            int[] errorr = new int[1] { -1 };
-            Console.WriteLine(error);
-            return errorr;
+            int n = int.Parse(Console.ReadLine());
+            while (n < 3) {
+                Console.WriteLine("Ingrese un valor mayor o igual a 3 para la longitud del vector:");
+                n = int.Parse(Console.ReadLine());
             }
             int[] vector = new int[n];
             Console.WriteLine("Ingrese los valores que desee: ");
@@ -80,7 +76,6 @@ namespace EjerciciosLogica.Ejercicio1
                vector[i] = int.Parse(Console.ReadLine());
             }
             return vector;
-          
          
         }
 
